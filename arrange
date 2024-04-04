@@ -1,0 +1,12 @@
+#!/bin/bash
+
+f_dir="./files"
+
+for file in "$f_dir"/*; do
+
+    filename=$(basename "$file")
+
+    first_char=$(echo "${filename:0:1}" | tr '[:upper:]' '[:lower:]')
+    
+    mv "$file" "${first_char}/$filename"
+done
